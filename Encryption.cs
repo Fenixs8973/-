@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,78 +17,116 @@ namespace Шифровщик
 
         public int FirstKey;
         public int SecondKey;
-        //Ключи получает
 
         public void Rut()
         {
             EnteredText = EnteredText.ToUpper();
-            string alph = "?!-.,АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";//алфавит
+            string alph = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";//алфавит
             char[] Alphabet = alph.ToCharArray();//Заполенение массива алфвитом
-            char[] EnteredTextInArray = EnteredText.ToCharArray();//Введенный текст в виде массива
-            char[] DecryptedText = new char[EnteredTextInArray.Length];//Дешифрованный текст
+            char[] CryptedText = new char[100];
+            Regex regex = new Regex(@"\w*\S?", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            MatchCollection matches = regex.Matches(EnteredText);
 
-            int DecryptionLetterInt;
-            char DecryptionLetterChar;
+            string[] Text = new string[EnteredText.Length];
+            string EndText = null;
+
+            int CryptionLetterInt;
+            char CryptionLetterChar;
             int Index = 0;
 
-            foreach (char VerifiableLetter in EnteredTextInArray)
+            foreach (Match match in matches)//Все слова
             {
-                //в цикл заходит
-
-                if (VerifiableLetter != ' ')
+                string g = match.Value;
+                char[] c = g.ToCharArray();
+                string Letter = null;
+                foreach (char u in c)
                 {
-
-                    for (int i = 0; i < alph.Length; i++)//Ищем соответствие букв
+                    switch (u)
                     {
-                        if (Alphabet[i] == VerifiableLetter)
-                        {
-                            if(hut == 1)
-                                DecryptionLetter(i, FirstKey, SecondKey, alph, out DecryptionLetterInt);//Нашли числовое значение буквы
-                            else
-                                EncryptionLetter(i, FirstKey, SecondKey, alph, out DecryptionLetterInt);//Нашли числовое значение буквы
-
-                            DecryptionLetterChar = Alphabet[DecryptionLetterInt];//Нашли буквенное значение цифры
-                            DecryptedText[Index] = DecryptionLetterChar;//Записали букву в массив
-                            Index++;
+                        case ' ':
+                            Letter += "";
                             break;
-                        }
+                        case '.':
+                            Letter += ".";
+                            break;
+                        case ',':
+                            Letter += ",";
+                            break;
+                        case '-':
+                            Letter += "-";
+                            break;
+                        case '!':
+                            Letter += "!";
+                            break;
+                        case '?':
+                            Letter += "?";
+                            break;
+                        default:
+                            for (int i = 0; i < 33; i++)//Ищем соответствие букв
+                            {
+                                if (Alphabet[i] == u)
+                                {
+                                    if (hut == 1)
+                                    {
+                                        DecryptionLetter(i, FirstKey, SecondKey, out CryptionLetterInt);//Нашли числовое значение буквы
+                                    }
+                                    else
+                                    {
+                                        EncryptionLetter(i, FirstKey, SecondKey, out CryptionLetterInt);//Нашли числовое значение буквы
+                                    }
+
+                                    CryptionLetterChar = Alphabet[CryptionLetterInt];//Нашли буквенное значение цифры
+                                    CryptedText[Index] = CryptionLetterChar;//Записали букву в массив
+                                    Letter += Convert.ToString(CryptedText[Index]);
+                                    Index++;                                //Index++;
+
+                                }
+                            }
+                            break;
                     }
+
+
+                    
                 }
-                else
+                if (Letter != null)
                 {
-                    DecryptedText[Index] = ' ';
-                    Index++;
+                    Letter += " ";
+                }
+                EndText += Letter;
+                Index = 0;
+            }
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Текстовый документ (*.txt)|*.txt|Все файлы (*.*)|*.*";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter streamWriter = new StreamWriter(saveFileDialog.FileName);
+                streamWriter.WriteLine(EndText);
+                streamWriter.Close();
+            }
+
+            void DecryptionLetter(int i, int FirstKey, int SecondKey, out int DecryptionLetterInt)
+            {
+                DecryptionLetterInt = (i - SecondKey);
+                while (DecryptionLetterInt % FirstKey != 0)
+                {
+                    DecryptionLetterInt += 33;
+                }
+                DecryptionLetterInt /= FirstKey;
+            }
+
+            void EncryptionLetter(int i, int FirstKey, int SecondKey, out int EncryptionLetterInt)
+            {
+                EncryptionLetterInt = FirstKey * i + SecondKey;
+                while (EncryptionLetterInt >= 33)
+                {
+                    EncryptionLetterInt -= 33;
                 }
             }
-            string EncryptionText = "";
-            foreach (char tyh in DecryptedText)//Вывод
-            {
-                EncryptionText = EncryptionText + tyh;
-            }
-            MessageBox.Show(EncryptionText);
+
+
+
 
         }
-        
-        void DecryptionLetter(int i, int FirstKey, int SecondKey, string alph, out int DecryptionLetterInt)
-        {
-            DecryptionLetterInt = (i - SecondKey);
-            while (DecryptionLetterInt % FirstKey != 0)
-            {
-                DecryptionLetterInt += alph.Length;
-            }
-            DecryptionLetterInt /= FirstKey;
-        }
-
-        void EncryptionLetter(int i, int FirstKey, int SecondKey, string alph, out int EncryptionLetterInt)
-        {
-            EncryptionLetterInt = FirstKey * i + SecondKey;
-            while (EncryptionLetterInt > alph.Length)
-            {
-                EncryptionLetterInt -= alph.Length;
-            }
-        }
-
     }
-        
-   
 }
