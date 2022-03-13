@@ -30,10 +30,16 @@ namespace Шифровщик
         {
             encryption.hut = 2;
             Encryption.EnteredText = EnteredTextBox.Text;
-            encryption.FirstKey = Convert.ToInt32(TextBoxFirstkey.Text);
-            encryption.SecondKey = Convert.ToInt32(TextBoxFSecondkey.Text);
-
-            encryption.Rut();
+            if (TextBoxFirstkey.Text != "" && TextBoxSecondkey.Text != "")
+            {
+                encryption.FirstKey = Convert.ToInt32(TextBoxFirstkey.Text);
+                encryption.SecondKey = Convert.ToInt32(TextBoxSecondkey.Text);
+                encryption.Rut();
+            }
+            else
+            {
+                MessageBox.Show("Введите значение ключей (до 8 цифр)");
+            }
         }
         
 
@@ -61,16 +67,40 @@ namespace Шифровщик
         {
             encryption.hut = 1;
             Encryption.EnteredText = EnteredTextBox.Text;
-            encryption.FirstKey = Convert.ToInt32(TextBoxFirstkey.Text);
-            encryption.SecondKey = Convert.ToInt32(TextBoxFSecondkey.Text);
-
-            encryption.Rut();
-            
+            if (TextBoxFirstkey.Text != "" && TextBoxSecondkey.Text != "")
+            {
+                encryption.FirstKey = Convert.ToInt32(TextBoxFirstkey.Text);
+                encryption.SecondKey = Convert.ToInt32(TextBoxSecondkey.Text);
+                encryption.Rut();
+            }
+            else
+            {
+                MessageBox.Show("Введите значение ключей (до 8 цифр)");
+            }
         }
 
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        
+
+        private void Registration_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Login_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+        }
+
+        private void Registration_Click_1(object sender, EventArgs e)
+        {
+            SignUp signUp = new SignUp();
+            signUp.Show();
         }
     }
 

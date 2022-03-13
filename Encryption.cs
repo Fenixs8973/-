@@ -123,10 +123,6 @@ namespace Шифровщик
                     EncryptionLetterInt -= 33;
                 }
             }
-
-
-
-
         }
     }
 }

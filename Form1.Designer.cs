@@ -32,9 +32,11 @@
             this.ButtonEncryption = new System.Windows.Forms.Button();
             this.ButtonDecryption = new System.Windows.Forms.Button();
             this.TextBoxFirstkey = new System.Windows.Forms.TextBox();
-            this.TextBoxFSecondkey = new System.Windows.Forms.TextBox();
+            this.TextBoxSecondkey = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.Registration = new System.Windows.Forms.Button();
+            this.Login = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EnteredTextBox
@@ -48,7 +50,7 @@
             // 
             // ButtonEncryption
             // 
-            this.ButtonEncryption.Location = new System.Drawing.Point(638, 65);
+            this.ButtonEncryption.Location = new System.Drawing.Point(199, 160);
             this.ButtonEncryption.Name = "ButtonEncryption";
             this.ButtonEncryption.Size = new System.Drawing.Size(112, 31);
             this.ButtonEncryption.TabIndex = 1;
@@ -58,7 +60,7 @@
             // 
             // ButtonDecryption
             // 
-            this.ButtonDecryption.Location = new System.Drawing.Point(638, 16);
+            this.ButtonDecryption.Location = new System.Drawing.Point(199, 111);
             this.ButtonDecryption.Name = "ButtonDecryption";
             this.ButtonDecryption.Size = new System.Drawing.Size(112, 31);
             this.ButtonDecryption.TabIndex = 3;
@@ -68,24 +70,24 @@
             // 
             // TextBoxFirstkey
             // 
-            this.TextBoxFirstkey.Location = new System.Drawing.Point(457, 22);
+            this.TextBoxFirstkey.Location = new System.Drawing.Point(18, 117);
             this.TextBoxFirstkey.Name = "TextBoxFirstkey";
             this.TextBoxFirstkey.Size = new System.Drawing.Size(112, 20);
             this.TextBoxFirstkey.TabIndex = 4;
             this.TextBoxFirstkey.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // TextBoxFSecondkey
+            // TextBoxSecondkey
             // 
-            this.TextBoxFSecondkey.Location = new System.Drawing.Point(457, 72);
-            this.TextBoxFSecondkey.Name = "TextBoxFSecondkey";
-            this.TextBoxFSecondkey.Size = new System.Drawing.Size(112, 20);
-            this.TextBoxFSecondkey.TabIndex = 5;
-            this.TextBoxFSecondkey.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.TextBoxSecondkey.Location = new System.Drawing.Point(18, 167);
+            this.TextBoxSecondkey.Name = "TextBoxSecondkey";
+            this.TextBoxSecondkey.Size = new System.Drawing.Size(112, 20);
+            this.TextBoxSecondkey.TabIndex = 5;
+            this.TextBoxSecondkey.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(475, 56);
+            this.label1.Location = new System.Drawing.Point(36, 151);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 13);
             this.label1.TabIndex = 6;
@@ -95,21 +97,43 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(475, 6);
+            this.label2.Location = new System.Drawing.Point(36, 101);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "Первый ключ";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
+            // Registration
+            // 
+            this.Registration.Location = new System.Drawing.Point(663, 23);
+            this.Registration.Name = "Registration";
+            this.Registration.Size = new System.Drawing.Size(103, 34);
+            this.Registration.TabIndex = 11;
+            this.Registration.Text = "Регистрация";
+            this.Registration.UseVisualStyleBackColor = true;
+            this.Registration.Click += new System.EventHandler(this.Registration_Click_1);
+            // 
+            // Login
+            // 
+            this.Login.Location = new System.Drawing.Point(536, 23);
+            this.Login.Name = "Login";
+            this.Login.Size = new System.Drawing.Size(103, 34);
+            this.Login.TabIndex = 12;
+            this.Login.Text = "Вход";
+            this.Login.UseVisualStyleBackColor = true;
+            this.Login.Click += new System.EventHandler(this.Login_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Login);
+            this.Controls.Add(this.Registration);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.TextBoxFSecondkey);
+            this.Controls.Add(this.TextBoxSecondkey);
             this.Controls.Add(this.TextBoxFirstkey);
             this.Controls.Add(this.ButtonDecryption);
             this.Controls.Add(this.ButtonEncryption);
@@ -126,9 +150,11 @@
         private System.Windows.Forms.Button ButtonEncryption;
         private System.Windows.Forms.Button ButtonDecryption;
         private System.Windows.Forms.TextBox TextBoxFirstkey;
-        private System.Windows.Forms.TextBox TextBoxFSecondkey;
+        private System.Windows.Forms.TextBox TextBoxSecondkey;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Registration;
+        private System.Windows.Forms.Button Login;
     }
 }
 
