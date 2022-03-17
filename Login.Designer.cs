@@ -32,7 +32,7 @@
             this.PassBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.Enter = new System.Windows.Forms.Button();
+            this.EnterButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LoginBox
@@ -41,6 +41,7 @@
             this.LoginBox.Name = "LoginBox";
             this.LoginBox.Size = new System.Drawing.Size(100, 20);
             this.LoginBox.TabIndex = 0;
+            this.LoginBox.TextChanged += new System.EventHandler(this.LoginBox_TextChanged);
             // 
             // PassBox
             // 
@@ -48,6 +49,7 @@
             this.PassBox.Name = "PassBox";
             this.PassBox.Size = new System.Drawing.Size(100, 20);
             this.PassBox.TabIndex = 1;
+            this.PassBox.TextChanged += new System.EventHandler(this.PassBox_TextChanged);
             // 
             // label1
             // 
@@ -69,21 +71,22 @@
             this.label2.Text = "Password";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // Enter
+            // EnterButton
             // 
-            this.Enter.Location = new System.Drawing.Point(105, 182);
-            this.Enter.Name = "Enter";
-            this.Enter.Size = new System.Drawing.Size(75, 23);
-            this.Enter.TabIndex = 4;
-            this.Enter.Text = "Enter";
-            this.Enter.UseVisualStyleBackColor = true;
+            this.EnterButton.Location = new System.Drawing.Point(105, 182);
+            this.EnterButton.Name = "EnterButton";
+            this.EnterButton.Size = new System.Drawing.Size(75, 23);
+            this.EnterButton.TabIndex = 4;
+            this.EnterButton.Text = "Enter";
+            this.EnterButton.UseVisualStyleBackColor = true;
+            this.EnterButton.Click += new System.EventHandler(this.EnterButton_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 411);
-            this.Controls.Add(this.Enter);
+            this.Controls.Add(this.EnterButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PassBox);
@@ -101,6 +104,6 @@
         private System.Windows.Forms.TextBox PassBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button Enter;
+        private System.Windows.Forms.Button EnterButton;
     }
 }

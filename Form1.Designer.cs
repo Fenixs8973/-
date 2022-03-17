@@ -37,6 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Registration = new System.Windows.Forms.Button();
             this.Login = new System.Windows.Forms.Button();
+            this.CreateTables = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EnteredTextBox
@@ -124,11 +125,22 @@
             this.Login.UseVisualStyleBackColor = true;
             this.Login.Click += new System.EventHandler(this.Login_Click);
             // 
+            // CreateTables
+            // 
+            this.CreateTables.Location = new System.Drawing.Point(681, 415);
+            this.CreateTables.Name = "CreateTables";
+            this.CreateTables.Size = new System.Drawing.Size(107, 23);
+            this.CreateTables.TabIndex = 15;
+            this.CreateTables.Text = "Создать таблицы";
+            this.CreateTables.UseVisualStyleBackColor = true;
+            this.CreateTables.Click += new System.EventHandler(this.CreateTables_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.CreateTables);
             this.Controls.Add(this.Login);
             this.Controls.Add(this.Registration);
             this.Controls.Add(this.label2);
@@ -155,6 +167,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button Registration;
         private System.Windows.Forms.Button Login;
+        private System.Windows.Forms.Button CreateTables;
     }
 }
 

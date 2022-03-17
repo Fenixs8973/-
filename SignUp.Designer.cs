@@ -28,23 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Enter = new System.Windows.Forms.Button();
+            this.SignUpButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PassBox = new System.Windows.Forms.TextBox();
             this.LoginBox = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.PassBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // Enter
+            // SignUpButton
             // 
-            this.Enter.Location = new System.Drawing.Point(107, 220);
-            this.Enter.Name = "Enter";
-            this.Enter.Size = new System.Drawing.Size(75, 23);
-            this.Enter.TabIndex = 9;
-            this.Enter.Text = "Sing Up";
-            this.Enter.UseVisualStyleBackColor = true;
+            this.SignUpButton.Location = new System.Drawing.Point(107, 220);
+            this.SignUpButton.Name = "SignUpButton";
+            this.SignUpButton.Size = new System.Drawing.Size(75, 23);
+            this.SignUpButton.TabIndex = 9;
+            this.SignUpButton.Text = "Sing Up";
+            this.SignUpButton.UseVisualStyleBackColor = true;
+            this.SignUpButton.Click += new System.EventHandler(this.SignUpButton_Click);
             // 
             // label2
             // 
@@ -77,13 +78,14 @@
             this.LoginBox.Name = "LoginBox";
             this.LoginBox.Size = new System.Drawing.Size(100, 20);
             this.LoginBox.TabIndex = 5;
+            this.LoginBox.TextChanged += new System.EventHandler(this.LoginBox_TextChanged);
             // 
-            // textBox1
+            // PassBox2
             // 
-            this.textBox1.Location = new System.Drawing.Point(95, 167);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 10;
+            this.PassBox2.Location = new System.Drawing.Point(95, 167);
+            this.PassBox2.Name = "PassBox2";
+            this.PassBox2.Size = new System.Drawing.Size(100, 20);
+            this.PassBox2.TabIndex = 10;
             // 
             // label3
             // 
@@ -100,8 +102,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 411);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.Enter);
+            this.Controls.Add(this.PassBox2);
+            this.Controls.Add(this.SignUpButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PassBox);
@@ -115,12 +117,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Enter;
+        private System.Windows.Forms.Button SignUpButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox PassBox;
         private System.Windows.Forms.TextBox LoginBox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox PassBox2;
         private System.Windows.Forms.Label label3;
     }
 }

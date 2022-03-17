@@ -9,7 +9,7 @@ namespace Шифровщик
 {
     internal class DB
     {
-        MySqlConnection connectionsql = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=cryption");
+        MySqlConnection connectionsql = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=cryption");
 
         public void OpenConnection()
         {
@@ -23,7 +23,7 @@ namespace Шифровщик
         }
         public MySqlConnection getConnection()
         {
-            return connectionsql;
+            return connectionsql;  
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Шифровщик
 
         public int FirstKey;
         public int SecondKey;
+        public string EndText = null;
 
         public void Rut()
         {
@@ -28,8 +29,7 @@ namespace Шифровщик
             MatchCollection matches = regex.Matches(EnteredText);
 
             string[] Text = new string[EnteredText.Length];
-            string EndText = null;
-
+            
             int CryptionLetterInt;
             char CryptionLetterChar;
             int Index = 0;
