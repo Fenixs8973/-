@@ -57,6 +57,7 @@
       <DependentUpon>CreateDB.cs</DependentUpon>
     </Compile>
     <Compile Include="DB.cs" />
+    <Compile Include="DischargeDB.cs" />
     <Compile Include="Encryption.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

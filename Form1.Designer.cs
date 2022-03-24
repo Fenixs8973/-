@@ -38,6 +38,9 @@
             this.Registration = new System.Windows.Forms.Button();
             this.Login = new System.Windows.Forms.Button();
             this.CreateTables = new System.Windows.Forms.Button();
+            this.PasswordDBUser = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.DischargeDB = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EnteredTextBox
@@ -135,11 +138,41 @@
             this.CreateTables.UseVisualStyleBackColor = true;
             this.CreateTables.Click += new System.EventHandler(this.CreateTables_Click);
             // 
+            // PasswordDBUser
+            // 
+            this.PasswordDBUser.Location = new System.Drawing.Point(508, 415);
+            this.PasswordDBUser.Name = "PasswordDBUser";
+            this.PasswordDBUser.Size = new System.Drawing.Size(128, 20);
+            this.PasswordDBUser.TabIndex = 16;
+            this.PasswordDBUser.TextChanged += new System.EventHandler(this.PasswordDBUser_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(505, 399);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(134, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Пароль пользователя бд";
+            // 
+            // DischargeDB
+            // 
+            this.DischargeDB.Location = new System.Drawing.Point(633, 205);
+            this.DischargeDB.Name = "DischargeDB";
+            this.DischargeDB.Size = new System.Drawing.Size(155, 38);
+            this.DischargeDB.TabIndex = 20;
+            this.DischargeDB.Text = "Выгрузка из БД";
+            this.DischargeDB.UseVisualStyleBackColor = true;
+            this.DischargeDB.Click += new System.EventHandler(this.DischargeDB_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DischargeDB);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.PasswordDBUser);
             this.Controls.Add(this.CreateTables);
             this.Controls.Add(this.Login);
             this.Controls.Add(this.Registration);
@@ -168,6 +201,9 @@
         private System.Windows.Forms.Button Registration;
         private System.Windows.Forms.Button Login;
         private System.Windows.Forms.Button CreateTables;
+        private System.Windows.Forms.TextBox PasswordDBUser;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button DischargeDB;
     }
 }
 
